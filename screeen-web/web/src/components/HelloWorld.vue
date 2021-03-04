@@ -29,9 +29,15 @@
 	</p>
 
 	<button @click="increment" class="button">
-		<i-feather-feather class="mr-4" />
-		count is: {{ count }}
+		<i-feather-arrow-up />
 	</button>
+
+	<span> count is: {{ count }} </span>
+
+	<button @click="decrement" class="button">
+		<i-feather-arrow-down />
+	</button>
+
 	<p>
 		Edit
 		<code>components/HelloWorld.vue</code> to test hot module replacement.
@@ -50,6 +56,7 @@ defineProps({
 
 const count = ref(0);
 const increment = () => count.value++;
+const decrement = () => count.value--;
 </script>
 
 <style scoped lang="postcss">
@@ -72,7 +79,7 @@ code {
 
 <style lang="postcss">
 .button {
-	@apply m-8 px-8 py-2 rounded-md;
+	@apply m-8 py-2 px-4 rounded-md;
 	@apply text-white bg-green-500 hover:bg-green-600;
 	@apply transition ease-in-out duration-300;
 	@apply focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50;
