@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"antfu.vite",
+		"bungcip.better-toml",
+		"matklad.rust-analyzer",
+		"ms-azuretools.vscode-docker",
+		"octref.vetur",
+		"voorjaar.windicss-intellisense"
+	]
+}
