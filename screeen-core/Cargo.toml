@@ -1,0 +1,27 @@
+[package]
+name = "screeen-core"
+version = "0.1.1"
+authors = ["nurodev <me@nuro.dev>"]
+edition = "2018"
+readme = "README.md"
+exclude = ["target"]
+keywords = ["screeen", "streaming", "video"]
+
+[[bin]]
+name = "screeen"
+path = "./src/main.rs"
+
+[features]
+default = ["web"]
+web = ["screeen-web", "actix-web-static-files"]
+
+[dependencies]
+actix-cors = "0.5.3"
+actix-files = "0.4.1"
+actix-rt = "1.1.1"
+actix-web = "3.3.1"
+actix-web-static-files = { version = "3.0.5", optional = true }
+env_logger = "0.8.2"
+log = "0.4.11"
+screeen-web = { path = "../screeen-web", optional = true }
+structopt = "0.3.20"

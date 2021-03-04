@@ -1,0 +1,12 @@
+[workspace]
+members = [
+    "screeen-core",
+    "screeen-web",
+]
+
+[profile.release]
+codegen-units = 1
+incremental = false
+lto = true
+opt-level = "z"
+panic = 'abort'

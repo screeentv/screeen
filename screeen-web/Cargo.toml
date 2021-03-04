@@ -1,0 +1,15 @@
+[package]
+name = "screeen-web"
+version = "0.1.1"
+authors = ["nurodev <me@nuro.dev>"]
+edition = "2018"
+build = "build.rs"
+
+[lib]
+path = "./src/lib.rs"
+
+[dependencies]
+actix-web-static-files = "3.0.5"
+
+[build-dependencies]
+actix-web-static-files = "3.0.5"
