@@ -8,10 +8,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["windows-latest", "macos-latest", "ubuntu-latest"]
-        toolchain: ["stable"]
+        include:
+          - name: 🔨 Build - Windows
+            os: windows-latest
+            artifact_name: screeen.exe
+          - name: 🔨 Build - macOS
+            os: macos-latest
+            artifact_name: screeen
+          - name: 🔨 Build - Linux
+            os: ubuntu-latest
+            artifact_name: screeen
     runs-on: ${{ matrix.os }}
-    name: 🔨 Build (${{ matrix.os }} | ${{ matrix.toolchain }})
+    name: ${{ matrix.name }})
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,7 +32,7 @@ jobs:
       - name: Setup Rust
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: ${{ matrix.toolchain }}
+          toolchain: stable
           override: true
 
       - name: Build
@@ -32,3 +40,9 @@ jobs:
         with:
           command: build
           args: --verbose --release
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.artifact_name }}-${{ matrix.os }}
+          path: target/release/${{ matrix.artifact_name }}
