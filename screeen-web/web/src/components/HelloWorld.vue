@@ -28,7 +28,10 @@
 		<a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
 	</p>
 
-	<button @click="increment" class="button">count is: {{ count }}</button>
+	<button @click="increment" class="button">
+		<i-feather-feather class="mr-4" />
+		count is: {{ count }}
+	</button>
 	<p>
 		Edit
 		<code>components/HelloWorld.vue</code> to test hot module replacement.

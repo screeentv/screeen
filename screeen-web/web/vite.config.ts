@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { join } from 'path';
 import Components from 'vite-plugin-components';
+import Icons, { ViteIconsResolver } from 'vite-plugin-icons';
 import Vue from '@vitejs/plugin-vue';
 import WindiCSS from 'vite-plugin-windicss';
 
@@ -10,7 +11,17 @@ export const config = defineConfig({
 	plugins: [
 		Components({
 			extensions,
+			customComponentResolvers: [
+				ViteIconsResolver({
+					componentPrefix: 'i',
+					enabledCollections: [
+						'feather',
+						'heroicons-outline',
+					],
+				}),
+			],
 		}),
+		Icons(),
 		Vue(),
 		WindiCSS({
 			config: {
