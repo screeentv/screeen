@@ -19,7 +19,7 @@ jobs:
             os: ubuntu-latest
             artifact_name: screeen
     runs-on: ${{ matrix.os }}
-    name: ${{ matrix.name }})
+    name: ${{ matrix.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
