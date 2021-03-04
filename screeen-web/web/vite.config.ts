@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite';
 import { join } from 'path';
+import Components from 'vite-plugin-components';
 import Vue from '@vitejs/plugin-vue';
 import WindiCSS from 'vite-plugin-windicss';
 
+const extensions: Array<string> = ['vue', 'js', 'jsx', 'ts', 'tsx'];
+
 export const config = defineConfig({
 	plugins: [
+		Components({
+			extensions,
+		}),
 		Vue(),
 		WindiCSS({
 			config: {
