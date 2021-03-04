@@ -4,6 +4,7 @@ import Components from 'vite-plugin-components';
 import Icons, { ViteIconsResolver } from 'vite-plugin-icons';
 import Vue from '@vitejs/plugin-vue';
 import WindiCSS from 'vite-plugin-windicss';
+import Pages from 'vite-plugin-pages';
 
 const extensions: Array<string> = ['vue', 'js', 'jsx', 'ts', 'tsx'];
 
@@ -22,6 +23,9 @@ export const config = defineConfig({
 			],
 		}),
 		Icons(),
+		Pages({
+			extensions,
+		}),
 		Vue(),
 		WindiCSS({
 			config: {

@@ -22,7 +22,8 @@
 	"dependencies": {
 		"@headlessui/vue": "^0.3.0",
 		"swrv": "^1.0.0-beta.8",
-		"vue": "^3.0.5"
+		"vue": "^3.0.5",
+		"vue-router": "^4.0.4"
 	},
 	"devDependencies": {
 		"@iconify/json": "^1.1.312",
@@ -33,6 +34,7 @@
 		"vite": "^2.0.5",
 		"vite-plugin-components": "^0.8.0",
 		"vite-plugin-icons": "^0.3.2",
+		"vite-plugin-pages": "^0.5.1",
 		"vite-plugin-windicss": "^0.6.4"
 	}
 }
