@@ -11,13 +11,16 @@ jobs:
         include:
           - name: 🔨 Build - Windows
             os: windows-latest
-            artifact_name: screeen.exe
+            build_artifact_name: screeen.exe
+            release_artifact_name: screeen-windows.exe
           - name: 🔨 Build - macOS
             os: macos-latest
-            artifact_name: screeen
+            build_artifact_name: screeen
+            release_artifact_name: screeen-macos
           - name: 🔨 Build - Linux
             os: ubuntu-latest
-            artifact_name: screeen
+            build_artifact_name: screeen
+            release_artifact_name: screeen-ubuntu
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.name }}
     steps:
@@ -47,5 +50,5 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.artifact_name }}-${{ matrix.os }}
-          path: target/release/${{ matrix.artifact_name }}
+          name: ${{ matrix.release_artifact_name }}
+          path: target/release/${{ matrix.build_artifact_name }}
